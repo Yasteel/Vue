@@ -1,27 +1,66 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <NavBar />
+  <MainContainer Name="Yasteel" Surname="Gungas"/> <!-- Props parsed down to component --> 
+
 </template>
+
+
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
 
-export default defineComponent({
+import NavBar from './components/NavBar.vue';
+import MainContainer from './components/MainContainer.vue';
+
+export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-});
-</script>
+    NavBar,
+    MainContainer
+  },
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data(){
+    return {
+      users: []
+    }
+  },
+
+  created(){
+    // this.users = [
+    //   {
+    //     id: 1,
+    //     name: "Yasteel",
+    //     surname: "Gungas",
+    //     username: "yasteel.gunga01@gmail.com",
+    //     address: "49 Acara Street"
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "John",
+    //     surname: "Doe",
+    //     username: "JoDoe@gmail.com",
+    //     address: "668 Some Lane"
+    //   },
+    //   {
+    //     id: 1,
+    //     name: "Jane",
+    //     surname: "Doe",
+    //     username: "JaneD@gmail.com",
+    //     address: "668 Some Lane"
+    //   }
+    // ];
+
+    // console.log(this.data)
+
+    console.log("Logged On Created Method");
+    
+  },
+
+  methods: {
+    test(){
+      console.log("It Graafs")
+    }
+  }
+};
+</script>
