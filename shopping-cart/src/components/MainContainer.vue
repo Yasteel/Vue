@@ -1,8 +1,10 @@
 <template>
     <div class="container">
-        <div class="cartContainer mb-2">
+        
+        <div class="cartContainer mb-2" v-for="user in Users">
+
             <div class="heading-row">
-                <a href="#" class="">{{ Name }} {{ Surname }}</a>
+                <a href="#" class=""></a>
                 <a href="#" class=""><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="personal-row">
@@ -15,9 +17,38 @@
                     <p>49 Acara Street</p>
                 </div>
             </div>
-            <div class="rows">
+            <!-- <div class="cart">
+                <table class="table">
+                    <thead class="">
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>total</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product</td>
+                            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, voluptas dolorem.</td>
+                            <td>2</td>
+                            <td>R200.00</td>
+                            <td>R400.00</td>
+                            <td><i class="fas fa-times" @click="doSomething"></i></td>  
+                        </tr>
 
-            </div>
+                        <tr>
+                            <td>Product</td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, dolor non. Neque maxime consequuntur laborum modi nam doloribus, necessitatibus unde?</td>
+                            <td>2</td>
+                            <td>R200.00</td>
+                            <td>R400.00</td>
+                            <td><i class="fas fa-times"></i></td>  
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div> -->
         </div>
     </div>
 </template>
@@ -28,11 +59,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     name: 'MainContainer',
     props: {
-        Name: {
-            type: String,
-            default: "Yasteel"
-        },
-        Surname: String
+        Users: Object
     }
 })
 </script>
@@ -59,8 +86,6 @@ export default defineComponent({
         flex-direction: row;
         box-shadow: 0 0 1rem rgba(0,0,0,.3);
         min-width: fit-content;
-        /* background: #212529;
-        color: white; */
     }
 
     .user-details p:nth-child(1){
@@ -76,6 +101,24 @@ export default defineComponent({
     .user-image img{
         width: 200px;
         height: 200px;
+    }
+
+    .cart{
+        margin-top: 1rem;
+        box-shadow: 0 0 1rem rgba(0,0,0,.3);
+        min-width: fit-content;
+    }
+
+    .item{
+        width: 350px;
+        display: flex;
+        flex-direction: row;
+
+        border: 1px solid black;
+    }
+
+    table :is(th,td){
+        padding: 1rem 1.5rem 1rem 1rem;
     }
 
     @media only screen and (max-width: 600px) {
